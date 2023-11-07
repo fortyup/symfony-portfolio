@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Register</h1>
+
+        {{ form_errors(registrationForm) }}
+
+        {{ form_start(registrationForm) }}
+        <div class="row">
+            <div class="col-md-6">
+                <!-- La ligne occupe 50% de la largeur sur les écrans de taille moyenne et supérieure -->
+                {{ form_row(registrationForm.name) }}
+            </div>
+            <div class="col-md-6">
+                <!-- La ligne occupe 50% de la largeur sur les écrans de taille moyenne et supérieure -->
+                {{ form_row(registrationForm.firstname) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <!-- La première colonne occupe 50% de la largeur sur les écrans de taille moyenne et supérieure -->
+                {{ form_row(registrationForm.email) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <!-- La deuxième colonne occupe 50% de la largeur sur les écrans de taille moyenne et supérieure -->
+                {{ form_row(registrationForm.plainPassword.first, {
+                    label: 'Password'
+                }) }}
+            </div>
+            <div class="col-md-6">
+                {{ form_row(registrationForm.plainPassword.second, {
+                    label: 'Confirm Password'
+                }) }}
+            </div>
+        </div>
+        {{ form_row(registrationForm.agreeTerms) }}
+
+        <button type="submit" class="btn btn-lg btn-primary">Register</button>
+        {{ form_end(registrationForm) }}
+    </div>
+{% endblock %}
